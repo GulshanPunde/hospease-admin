@@ -12,7 +12,7 @@ const AdminHomePage = () => {
       >
         <div style={{ width: '100%', maxWidth: '1200px' }}>
           <h2 
-            className="text-center mb-4 p-2" 
+            className="text-center mb-4 p-2 " 
             style={{ color: '#007bff', fontWeight: 'bold'}} // Added margin-top for extra space
           >
             Welcome to Hospital Admin Dashboard

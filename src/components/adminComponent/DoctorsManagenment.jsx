@@ -61,8 +61,8 @@ const DoctorsManagement = () => {
   };
 
   return (
-    <div className="container-fluid py-5">
-      <h2 className="mb-4 text-center text-primary fw-bold">Doctors Management</h2>
+    <div className="container py-2"  >
+      <h2 className="mb-4 text-center text-primary fw-bold shadow p-2">Doctors Management</h2>
 
       <div className="row g-4">
         <div className="col-md-6">

@@ -45,7 +45,7 @@ function AppointmentsManagement() {
 
   return (
     <div className="p-4" style={{ background: '#e3f2fd', color: '#000' }}>
-      <h2 className="mb-4 text-center">Hospital Appointment Requests - Admin Panel</h2>
+      <h2 className="mb-4 text-center shadow p-3 text-primary">Hospital Appointment Requests</h2>
 
       <div className="mb-3">
         <input 

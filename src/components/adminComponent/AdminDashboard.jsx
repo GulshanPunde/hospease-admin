@@ -33,7 +33,7 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div className="row m-2">
+    <div className="row m-2" >
       {dashboardSections.map((card, index) => (
         <AdminDashboardCard
           key={index}

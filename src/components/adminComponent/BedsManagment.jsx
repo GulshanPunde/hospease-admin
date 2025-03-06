@@ -45,8 +45,8 @@ function BedsManagement() {
   const departmentStats = getDepartmentStats();
 
   return (
-    <div className="container mt-5">
-      <h2 className="text-primary mb-4">Beds Management</h2>
+    <div className="container  mt-2">
+      <h2 className="text-primary mb-4 text-center shadow p-3 fw-bold">Beds Management</h2>
 
       <div className="card p-3 mb-4">
         <h4 className="text-success">Bed Availability Summary</h4>
