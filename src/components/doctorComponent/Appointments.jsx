@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const Appointments = () => {
   const initialAppointments = [
@@ -26,29 +27,43 @@ const Appointments = () => {
         { id: appointments.length + 1, ...newAppointment },
       ]);
       setNewAppointment({ patient: "", date: "", time: "", reason: "" });
+      Swal.fire("Added!", "Appointment has been added successfully.", "success");
     } else {
-      alert("Please fill in all fields!");
+      Swal.fire("Error!", "Please fill in all fields to add an appointment.", "error");
     }
   };
 
   const handleDeleteAppointment = (id) => {
-    setAppointments(appointments.filter((appointment) => appointment.id !== id));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This action cannot be undone.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setAppointments(appointments.filter((appointment) => appointment.id !== id));
+        Swal.fire("Deleted!", "Appointment has been removed.", "success");
+      }
+    });
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="text-center text-success">Appointments</h2>
-      <p className="text-center">Manage and view your appointments here.</p>
+    <div className="container mb-3">
+      {/* <h2 className="text-center text-success">Manage Your Appointments</h2>
+      <p className="text-center">Easily schedule, view, and manage appointments with a streamlined interface.</p> */}
 
       <div className="card p-3 mb-4 shadow-sm">
-        <h4 className="text-success">Add New Appointment</h4>
+        <h4 className="text-success">Add a New Appointment</h4>
         <div className="row g-3">
           <div className="col-md-3">
             <input
               type="text"
               name="patient"
               className="form-control"
-              placeholder="Patient Name"
+              placeholder="Patient's Full Name"
               value={newAppointment.patient}
               onChange={handleChange}
             />
@@ -76,7 +91,7 @@ const Appointments = () => {
               type="text"
               name="reason"
               className="form-control"
-              placeholder="Reason"
+              placeholder="Reason for Visit"
               value={newAppointment.reason}
               onChange={handleChange}
             />
@@ -90,8 +105,8 @@ const Appointments = () => {
       </div>
 
       <h4 className="mb-3">Upcoming Appointments</h4>
-      <div className="table-responsive">
-        <table className="table table-bordered table-striped">
+      <div className="table-responsive  ">
+        <table className="table table-bordered table-striped shadow">
           <thead className="table-success">
             <tr>
               <th>#</th>
